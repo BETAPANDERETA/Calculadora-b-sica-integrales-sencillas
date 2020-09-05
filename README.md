@@ -56,7 +56,7 @@
 
 ## Demostración - ejemplo
 
-- [x] La función probada es, se realizará simplente la aproximación con 6 particiones(n = 6) sin embargo pueden ser introducidas la cantidad de particiones:
+- [x] La función probada es:  (se realizará simplemente la aproximación con 6 particiones(n = 6), sin embargo pueden ser introducidas la cantidad de particiones que se quieran)
 
 <p align="center">
   <img width="218" height="79" src=Images/int_ej.png>
