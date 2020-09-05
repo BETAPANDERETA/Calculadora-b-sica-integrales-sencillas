@@ -3,23 +3,20 @@
 - [x] Esta calculadora es un mini proyecto que realiza aproximaciones de algunas integrales definidas,
       el programa aproximará las integrales de las funciones que se le den, siempre y cuando sean funciones continuas, estén definidas en todo su dominio.
 
-- [x] Se probó con todas las integrales de los ejercicios de la sección 5.6 del libro "Cálculo con      geometría analítica - Earl W. Swokowski". 
+- [x] Se probó con  las integrales de los ejercicios de la sección 5.6 del libro "Cálculo con      geometría analítica - Earl W. Swokowski". 
+
+- [x] El programa no es a prueba de tontos xd, por ahorro de tiempo, sin embargo es una herramienta útil si se usa con total claridad por ejemplo sabiendo que n > 0. 
 
 
 <p align="left">
   <!-- Fecha - Último commit -->
   <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/BETAPANDERETA/Calculadora-b-sica-integrales-sencillas?style=for-the-badge">
-
   <!-- Issues icono -->
   <a href="https://github.com/BETAPANDERETA/Calculadora-b-sica-integrales-sencillas/issues"><img alt="GitHub issues" src="https://img.shields.io/github/issues/BETAPANDERETA/Calculadora-b-sica-integrales-sencillas?style=for-the-badge"></a>
-  
   <!-- Stars icono -->
   <a href="https://github.com/BETAPANDERETA/Calculadora-b-sica-integrales-sencillas/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/BETAPANDERETA/Calculadora-b-sica-integrales-sencillas?color=yellow&style=for-the-badge"></a>
-
   <!-- Viendo icono -->
-  
   <!-- Licencia-->
-  
 </p>
 
 ## Requisitos:
@@ -59,7 +56,7 @@
 
 ## Demostración - ejemplo
 
-- [x] La función probada es:
+- [x] La función probada es, se realizará simplente la aproximación con 6 particiones(n = 6) sin embargo pueden ser introducidas la cantidad de particiones:
 
 <p align="center">
   <img width="218" height="79" src=Images/int_ej.png>
@@ -71,12 +68,12 @@
   <img width="600" height="200" src=Images/loc_func.PNG>
 </p>
 
-- [x] Las aproximaciones obtenidas por Rn, trapecio y Simpson son:
+- [x] Las aproximaciones obtenidas por Rn, trapecio y Simpson son (Imágenes de visualización de datos en la terminal):
 
 <p align="center">
-  <img width="400" height="400" src=Images/Rn_demo.PNG>
-  <img width="400" height="400" src=Images/Trapecios_demo.PNG>
-  <img width="400" height="400" src=Images/Simpson_demo.PNG>
+  <img width="200" height="200" src=Images/Rn_demo.PNG>
+  <img width="200" height="200" src=Images/Trapecios_demo.PNG>
+  <img width="200" height="200" src=Images/Simpson_demo.PNG>
 </p>
 
 ## Uso
