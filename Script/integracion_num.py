@@ -1,18 +1,19 @@
 #----------------------------------
-# Calculadora básica de integrales|
-# AUTOR: BETAPANDERETA            |
-# Version: 0.5.5                  |
+#| Calculadora básica de integrales|
+#| AUTOR: BETAPANDERETA            |
+#| Version: 0.6.0                  |
 #----------------------------------
+from tabulate import tabulate
+import math
 
-def create_table(i,xi,f_xi,area):
+def tabular_data(data):
 
-    labels = "|i||       Xi         ||      f(Xi)       |"
-    info = "|"+str(i)+"||"+str(xi)+"||"+str(f_xi)+"|"
-    resultado = "|        ÁREA:        ||"+str(area)+"|"
+    info = data
+    labels = ["i","Xi","f(Xi)"]
 
-    tabla = [labels,info,resultado]
+    tabla_info = tabulate(info,headers=labels,tablefmt="fancy_grid",disable_numparse=True)
 
-    return tabla
+    return tabla_info
 
 def data_entry():
 
@@ -22,9 +23,9 @@ def data_entry():
         
         a = float(input("a:"))
         b = float(input("b:"))
-        
-        labels = "|          n:"+str(n)+"       ||     I["+str(int(a))+","+str(int(b))+"]       |"
-        print(labels)
+        region = "I["+str(int(a))+","+str(int(b))+"]"
+
+        print(tabulate([["n:",str(n),region]],tablefmt="fancy_grid"))
 
         if b > a and b != a:
 
@@ -38,44 +39,20 @@ def func_num(x):  #Función numérica
 
     #----------------------------------
     # Funciones de prueba
-    # e = 2.71828    
-    # f = pow(e,x)  
-    # f = pow(x,2)
+    # e = 2.71828    f = 1/(math.sqrt(1+(pow(x,2)))) f = pow((pow(x,2)+8),(1/3))
+    # f = pow(e,x)   f = math.sqrt(1+(pow(x,3)))     f = 1/(1+x)
+    # f = pow(x,2)   f = 1/(4+(pow(x,2)))            f= 1/x
     #----------------------------------
 
-    f = 1/x  # Función racional f(x) = 1/x puede cambiarse 
+    f = pow((pow(x,2)+8),(1/3)) # Acá poner la función deseada 
+
     return f
 
+#---------------------------------------------------------
+#|              Aproximación por secciones (Rn)           |
+#---------------------------------------------------------
+
 def aprox_der():
-
-    ent = data_entry()
-
-    delta_x = (ent[2]-ent[1])/(ent[0])
-    x_i = ent[1]
-    f_xi = 0
-    sum = 0
-    i = 0
-
-    tabla_labels = create_table(i,x_i,f_xi,0)
-    print(tabla_labels[0])
-
-    for i in range (ent[0]):
-        
-        x_i += delta_x
-        f_xi = func_num(x_i)
-        sum += f_xi
-        
-        # Creando la tabla en la terminal
-
-        tabla_info = create_table(i+1,x_i,f_xi,0)
-        print(tabla_info[1])
-
-    area = sum*delta_x
-
-    tabla_rs = create_table(i+1,x_i,f_xi,area)
-    print(tabla_rs[2])
-
-def aprox_simp():
 
     ent = data_entry()
 
@@ -85,33 +62,120 @@ def aprox_simp():
     sum = 0
     i = 0
 
-    tabla_labels = create_table(i,x_i,f_xi,0)
-    print(tabla_labels[0])
-    print(tabla_labels[1])
+    info_tabla = [[i,x_i,f_xi]]
 
     for i in range (ent[0]):
-        
+
         x_i += delta_x
-
-        if i%2 == 0:
-            f_xi = 2*func_num(x_i)
-        else: 
-            f_xi = 4*func_num(x_i)
-
-        if i == ent[0]:
-            f_xi = func_num(x_i)
-  
+        f_xi = func_num(x_i)
         sum += f_xi
         
-        # Creando la tabla en la terminal
+        #Info para construir la tabla
 
-        tabla_info = create_table(i+1,x_i,f_xi,0)
-        print(tabla_info[1])
+        data = [i+1,x_i,f_xi]
+        info_tabla.append(data)
+        
+    area = ["AREA",sum*delta_x]
+    info_tabla.append(area)
 
-    area = sum*((1/3)*delta_x)
+    #Creando la tabla
 
-    tabla_rs = create_table(i+1,x_i,f_xi,area)
-    print(tabla_rs[2])
+    imp = tabular_data(info_tabla)
+    print(imp)
 
+#---------------------------------------------------------
+#|                   Regla de Simpson                      |
+#---------------------------------------------------------
+
+def aprox_simp():
+
+    while True:
+
+        ent = data_entry()
+
+        if ent[0]%2 != 0:
+            print("¡n Impar!")
+        else:
+
+            delta_x = (ent[2]-ent[1])/(ent[0])
+            x_i = ent[1]
+            f_xi = func_num(x_i)
+            sum = f_xi
+            i = 0
+
+            info_tabla = [[i,x_i,f_xi]]
+
+            for i in range (ent[0]):
+                
+                    x_i += delta_x
+
+                    if i%2 != 0:
+                        f_xi = 2*func_num(x_i)
+                    else: 
+                        f_xi = 4*func_num(x_i)
+
+                    if i+1 == ent[0]:
+                        f_xi = func_num(x_i)
+
+                    #Info para construir la tabla
+
+                    data = [i+1,x_i,f_xi]
+                    info_tabla.append(data)
+
+                    sum += f_xi
+ 
+            area = ["AREA:",sum*((1/3)*delta_x)]
+            info_tabla.append(area)
+
+            #Creando la tabla
+
+            imp = tabular_data(info_tabla)
+            print(imp)
+
+            break
+
+#---------------------------------------------------------
+#|                   Regla del Trapecio                   |
+#---------------------------------------------------------
+
+def aprox_trap():
+
+    ent = data_entry()
+
+    delta_x = (ent[2]-ent[1])/(ent[0])
+    x_i = ent[1]
+    f_xi = func_num(x_i)
+    sum = f_xi
+    i = 0
+
+    info_tabla = [[i,x_i,f_xi]]
+
+    for i in range (ent[0]):
+                
+        x_i += delta_x
+        f_xi = 2*func_num(x_i)
+
+        if i+1 == ent[0]:
+            f_xi = func_num(x_i)
+        
+        sum += f_xi
+                
+        #Info para construir la tabla
+
+        data = [i+1,x_i,f_xi]
+        info_tabla.append(data)
+
+    area = ["AREA",sum*((1/2)*delta_x)]
+    info_tabla.append(area)
+
+    #Creando la tabla
+
+    imp = tabular_data(info_tabla)
+    print(imp)
+
+print("\n||            APROXIMACIÓN POR Rn          ||\n")
 aprox_der()
+print("\n||           APROXIMACIÓN POR SIMPSON      ||\n")
 aprox_simp()
+print("\n||         APROXIMACIÓN POR TRAPECIOS      ||\n")
+aprox_trap()
