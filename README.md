@@ -84,7 +84,20 @@
 </p>
 
 ## Uso
-1. Ubicar la función deseada en donde corresponde - Linea 47.
+1. Ubicar la función deseada en donde corresponde osea dentro de la función def func_num(x):
+
+
+```python
+		
+  def func_num(x):  #Función numérica
+
+    f = (math.cos(x))/x # Acá poner la función deseada -Este es un ejemplo
+
+    return f
+
+```
+
+
 2. Dar cantidad de particiones, a y b (Esta parte es muy intuitiva, el programa le pedirá estos datos por consola).
 3. Asegúrese que la función sea continua en el intervalo que dió, el programa no realiza integrales impropias, ni mucho menos pretende reemplzar a Symbolab, este solo hace aproximaciones númericas de integrales definidas.
 
