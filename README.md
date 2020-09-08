@@ -1,12 +1,4 @@
-# Calculadora de integrales sencillas  
-
-- [x] Esta calculadora es un mini proyecto que realiza aproximaciones de algunas integrales definidas,
-      el programa aproximará las integrales de las funciones que se le den, siempre y cuando sean funciones continuas, estén definidas en todo su dominio.
-
-- [x] Se probó con  las integrales de los ejercicios de la sección 5.6 del libro "Cálculo con      geometría analítica - Earl W. Swokowski". 
-
-- [x] El programa no es a prueba de tontos xd, por ahorro de tiempo, sin embargo es una herramienta útil si se usa con total claridad por ejemplo sabiendo que n > 0. 
-
+# Calculadora de integrales definidas 
 
 <p align="left">
   <!-- Fecha - Último commit -->
@@ -19,13 +11,21 @@
   <!-- Licencia-->
 </p>
 
+- [x] Esta calculadora es un mini proyecto que realiza aproximaciones de  integrales definidas,
+      el programa aproximará las integrales de las funciones que se le den, siempre y cuando sean funciones continuas, estén definidas en todo su dominio.
+
+- [x] Se probó con  las integrales de los ejercicios de la sección 5.6 del libro "Cálculo con      geometría analítica - Earl W. Swokowski" y algunos ejercicios de la sección 7.7 del libro Stewart Calculus: Early Transcendentals. 
+
+- [x] El programa no es a prueba de tontos xd, por ahorro de tiempo, sin embargo es una herramienta útil si se usa con total claridad por ejemplo sabiendo que n > 0. 
+
+
 ## Requisitos:
 
 1. Módulo tabulate 0.8.7 [Descarga el módulo acá](https://pypi.org/project/tabulate/)
 
 ## ¿Cómo funciona? (Resumen)
 
-:one: El programa realiza aproximaciones numéricas con tres algoritmos ya conocidos.
+:one: El programa realiza aproximaciones numéricas con cuatro algoritmos ya conocidos.
 
 :two: La función que se le proporciona en el código es tomada como una "curva" y además se le dice el intervalo sobre el que se "integrará".
 
@@ -41,11 +41,18 @@
   <img width="162" height="82" src=Images/Rn.png>
 </p>
 
+- [x] Regla del punto medio: Aproximación tomando las alturas de la mitad de los rectángulos de cada partición.
+
+<p align="center">
+  <img width="340" height="64" src=Images/Mn.png>
+</p>
+
 - [x] Regla del Trapecio: Aproximación tomando trapecios en vez de rectángulos.
 
 <p align="center">
   <img width="427" height="92" src=Images/trapecio.png>
 </p>
+
 
 - [x] Regla de Simpson: Aproximación tomando Parábolas, n debe ser par en este caso:
 
@@ -86,6 +93,14 @@
 <p align="center">
     <img width="400" height="400" src=Images/list_int.jpeg>
 </p>
+
+## Actualizaciones previstas
+
+:one: Aspiro poder encontrar una manera más amigable para introducir las funciones a integrar.
+
+:two: Me gustaría incorporar un UI, donde se vean las gráficas de las funciones y la tabla de que se imprime en la terminal.
+
+:three: Incorporar el error de estimación de cada aproximación.
 
 ## Licencia
 Licencia MIT (Open source)

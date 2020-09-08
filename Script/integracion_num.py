@@ -1,7 +1,7 @@
 #----------------------------------
-#| Calculadora básica de integrales|
+#| Calculadora de integrales       |
 #| AUTOR: BETAPANDERETA            |
-#| Version: 0.6.0                  |
+#| Versión: 0.7.0                  |
 #----------------------------------
 from tabulate import tabulate
 import math
@@ -37,14 +37,7 @@ def data_entry():
 
 def func_num(x):  #Función numérica
 
-    #----------------------------------
-    # Funciones de prueba
-    # e = 2.71828    f = 1/(math.sqrt(1+(pow(x,2)))) f = pow((pow(x,2)+8),(1/3))
-    # f = pow(e,x)   f = math.sqrt(1+(pow(x,3)))     f = 1/(1+x)
-    # f = pow(x,2)   f = 1/(4+(pow(x,2)))            f= 1/x
-    #----------------------------------
-
-    f = pow((pow(x,2)+8),(1/3)) # Acá poner la función deseada 
+    f = (math.cos(x))/x # Acá poner la función deseada 
 
     return f
 
@@ -75,7 +68,7 @@ def aprox_der():
         data = [i+1,x_i,f_xi]
         info_tabla.append(data)
         
-    area = ["AREA",sum*delta_x]
+    area = ["Rn",sum*delta_x]
     info_tabla.append(area)
 
     #Creando la tabla
@@ -124,7 +117,7 @@ def aprox_simp():
 
                     sum += f_xi
  
-            area = ["AREA:",sum*((1/3)*delta_x)]
+            area = ["Sn:",sum*((1/3)*delta_x)]
             info_tabla.append(area)
 
             #Creando la tabla
@@ -165,7 +158,7 @@ def aprox_trap():
         data = [i+1,x_i,f_xi]
         info_tabla.append(data)
 
-    area = ["AREA",sum*((1/2)*delta_x)]
+    area = ["Tr",sum*((1/2)*delta_x)]
     info_tabla.append(area)
 
     #Creando la tabla
@@ -173,9 +166,55 @@ def aprox_trap():
     imp = tabular_data(info_tabla)
     print(imp)
 
-print("\n||            APROXIMACIÓN POR Rn          ||\n")
-aprox_der()
-print("\n||           APROXIMACIÓN POR SIMPSON      ||\n")
-aprox_simp()
-print("\n||         APROXIMACIÓN POR TRAPECIOS      ||\n")
-aprox_trap()
+#---------------------------------------------------------
+#|                   Regla del punto medio                |
+#---------------------------------------------------------
+
+def aprox_med():
+
+    ent = data_entry()
+
+    delta_x = (ent[2]-ent[1])/(ent[0])
+    x_i = ent[1]
+    f_xi = func_num(x_i)
+    sum = 0
+    i = 0
+
+    info_tabla = [[i,x_i,f_xi]]
+
+    for i in range (ent[0]-1):
+
+        if i == 0:
+            x_i += (delta_x)/2
+
+        x_i += delta_x
+
+        f_xi = func_num(x_i)
+        sum += f_xi
+        
+        #Info para construir la tabla
+
+        data = [i+1,x_i,f_xi]
+        info_tabla.append(data)
+        
+    area = ["Mn",sum*delta_x]
+    info_tabla.append(area)
+
+    #Creando la tabla
+
+    imp = tabular_data(info_tabla)
+    print(imp)
+
+def main():
+
+    print("\n||            APROXIMACIÓN POR Rn          ||\n")
+    aprox_der()
+    print("\n||      APROXIMACIÓN POR PUNTO MEDIO       ||\n")
+    aprox_med()
+    print("\n||         APROXIMACIÓN POR TRAPECIOS      ||\n")
+    aprox_trap()
+    print("\n||           APROXIMACIÓN POR SIMPSON      ||\n")
+    aprox_simp()
+
+if __name__ == "__main__":
+    main()
