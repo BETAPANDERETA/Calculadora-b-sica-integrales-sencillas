@@ -1,4 +1,4 @@
-# Calculadora de integrales definidas 
+# BETA-INTEGRAL SOLVER
 
 <p align="center">
     <img width="422" height="266" src=Images/interfaz.PNG>
@@ -20,7 +20,7 @@
 
 - [x] Se probó con  las integrales de los ejercicios de la sección 5.6 del libro "Cálculo con      geometría analítica - Earl W. Swokowski" y algunos ejercicios de la sección 7.7 del libro Stewart Calculus: Early Transcendentals. 
 
-- [x] El programa no es a prueba de tontos xd, por ahorro de tiempo, sin embargo es una herramienta útil si se usa con total claridad por ejemplo sabiendo que n > 0. 
+- [x] El programa no es a prueba de tontos xd :goberserk: , por ahorro de tiempo, sin embargo es una herramienta útil si se usa con total claridad por ejemplo sabiendo que n > 0. 
 
 
 ## Requisitos:
@@ -108,8 +108,18 @@
 ## Integrales probadas
 
 <p align="center">
-    <img width="400" height="250" src=Images/list_int.jpeg>
+    <img width="300" height="250" src=Images/list_int.jpeg>
 </p>
+
+## Versión y novedades
+
+:goberserk: :zero:.:seven:.:one:
+
+:white_check_mark: La terminal se ve cool.
+
+:white_check_mark: Permite elegir el método, en vez de obligar a usarlos todos.
+
+:white_check_mark: La aproximación por punto medio es mejorada, realiza la aproximación con el error de estimación esperado.
 
 ## Actualizaciones previstas
 
