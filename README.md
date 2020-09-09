@@ -1,5 +1,9 @@
 # Calculadora de integrales definidas 
 
+<p align="center">
+    <img width="422" height="266" src=Images/interfaz.PNG>
+</p>
+
 <p align="left">
   <!-- Fecha - Último commit -->
   <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/BETAPANDERETA/Calculadora-b-sica-integrales-sencillas?style=for-the-badge">
@@ -97,14 +101,14 @@
 
 ```
 
-
-2. Dar cantidad de particiones, a y b (Esta parte es muy intuitiva, el programa le pedirá estos datos por consola).
-3. Asegúrese que la función sea continua en el intervalo que dió, el programa no realiza integrales impropias, ni mucho menos pretende reemplzar a Symbolab, este solo hace aproximaciones númericas de integrales definidas.
+2. Seleccionar el método con el que quiere hacer la aproximación.
+3. Dar la cantidad de particiones, los extremos del intervalo (a y b. Esta parte es muy intuitiva, el programa le pedirá estos datos por consola).
+4. Asegúrese que la función sea continua en el intervalo que dió, el programa no realiza integrales impropias, ni mucho menos pretende reemplzar a Symbolab, este solo hace aproximaciones númericas de integrales definidas.
 
 ## Integrales probadas
 
 <p align="center">
-    <img width="400" height="400" src=Images/list_int.jpeg>
+    <img width="400" height="250" src=Images/list_int.jpeg>
 </p>
 
 ## Actualizaciones previstas
